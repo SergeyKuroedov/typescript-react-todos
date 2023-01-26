@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&family=Philosopher&family=Roboto:wght@400;700;900&display=swap');
+@import '../src/scss/vars';
+
+
+body {
+    font-family: 'Neucha';
+    background: url(https://images.unsplash.com/photo-1672740276184-74e76b16c0f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1228&q=80) no-repeat center;
+    overflow: hidden;
+}
+
+.app {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+
+    &__logo {
+        font-size: 40px;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        color: white;
+        z-index: 1;
+    }
+}
+
+.input {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 30px;
+
+    &__box {
+        width: 100%;
+        border-radius: 50px;
+        border: none;
+        padding: 20px 30px;
+        font-size: 20px;
+        transition: 0.2s;
+        box-shadow: inset 0 0 5px black;
+        font-family: serif 'Neucha';
+    }
+
+    &__box:focus {
+        box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.2);
+        outline: none;
+    }
+
+    &__button {
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+        border: none;
+        background-color: $blueColor;
+        position: absolute;
+        right: 0;
+        margin: 10px;
+        color: white;
+        box-shadow: 0 0 3px black;
+        transition: 0.2s all;
+        font-size: 15px;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $blueColorHover;
+        }
+
+        &:active {
+            transform: scale(0.9);
+            box-shadow: 0 0 5px black;
+        }
+    }
+}
+
+.todos {
+    display: flex;
+    width: 45%;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: black;
+
+
+    &_input {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid white;
+        color: white;
+
+    }
+
+    &__single {
+        background: url(https://images.freeimages.com/images/large-previews/86b/wood-4-1463232.jpg) no-repeat;
+        border-radius: 20px;
+        padding: 20px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 10px;
+        color: white;
+        transition: 0.2s;
+
+        &:hover {
+            box-shadow: 0 0 5px black;
+            transform: scale(1.05);
+        }
+
+        &--text {
+            font-size: 18px;
+            width: 70%;
+            outline: none;
+        }
+    }
+
+    &__heading {
+        font-size: 30px;
+        color: white;
+        text-align: center;
+    }
+
+    &__icon{
+        &--done:hover{
+            color: rgb(19, 197, 19);
+        }
+        &--edit:hover {
+            color: $blueColor;
+        }
+        &--delete:hover{
+            color: red;
+        }
+    }
+
+    &__icons {
+        span {
+            margin-right: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            user-select: none;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.complete {
+    background-color: $blueColor
+}
+
+.remove {
+    background-color: $redColor;
+}
+
+.container {
+    display: flex;
+    margin-top: 10px;
+    width: 90%;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.drag {
+    background-color: $blueColorHover;
+}
+
+.dragged {
+    background-color: $redColorHover;
+}
+
+.dragging {
+
+    box-shadow: 0 0 39px black;
+}
+
+
