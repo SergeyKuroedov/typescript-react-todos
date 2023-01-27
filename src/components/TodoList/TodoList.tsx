@@ -1,14 +1,8 @@
 import React from "react";
 import { Droppable } from "react-beautiful-dnd";
-import { Todo } from "../../models";
+import { Todo, TodoProps} from "../../interfaces/interfaces";
 import SingleTodo from "../SingleTodo/SingleTodo";
 
-interface TodoProps {
-  todos: Todo[];
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
-  completedTodos: Todo[];
-  setCompletedTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
-}
 
 export const TodoList: React.FC<TodoProps> = ({
   todos,

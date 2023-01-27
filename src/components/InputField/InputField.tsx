@@ -1,11 +1,6 @@
 import React, { useRef } from "react";
 import "../../style.scss";
-
-interface InputProps {
-  todo: string;
-  setTodo: React.Dispatch<React.SetStateAction<string>>;
-  handleForm: (e: React.FormEvent<EventTarget>) => void;
-}
+import { InputProps } from "../../interfaces/interfaces";
 
 export const InputField: React.FC<InputProps> = ({
   todo,

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { InputField } from "../InputField/InputField";
 import "../../style.scss";
-import { Todo } from "../../models";
+import { Todo } from "../../interfaces/interfaces";
 import { TodoList } from "../TodoList/TodoList";
-import { DragDropContext, DropResult } from "react-beautiful-dnd";
+import { DragDropContext } from "react-beautiful-dnd";
+import { DragAndDrop } from "../../utlls/DnD/DragAndDrop";
 
 const App: React.FC = (): JSX.Element => {
   const [todo, setTodo] = useState<string>("");
@@ -18,37 +19,7 @@ const App: React.FC = (): JSX.Element => {
     }
   };
 
-  const onDragEnd = (result: DropResult): void => {
-    const { source, destination } = result;
-
-    if (!destination) return;
-    if (
-      destination.droppableId === source.droppableId &&
-      destination.index === source.index
-    )
-      return;
-
-      let add;
-      let active = todos;
-      let complete = completedTodos;
-
-      if (source.droppableId === "TodosList") {
-        add = active[source.index];
-        active.splice(source.index, 1);
-      } else {
-        add = complete[source.index];
-        complete.splice(source.index, 1);
-      }
-
-      if (destination.droppableId === "TodosList") {
-        active.splice(destination.index, 0, add);
-      } else {
-        complete.splice(destination.index, 0, add);
-      }
-  
-      setCompletedTodos(complete);
-      setTodos(active);
-    };
+  const {onDragEnd} = new DragAndDrop('TodosList', todos, completedTodos, setCompletedTodos,setTodos)
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>

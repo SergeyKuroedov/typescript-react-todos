@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Todo } from "../../models";
+import { Todo } from "../../interfaces/interfaces";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { MdOutlineDone } from "react-icons/md";
 import { Draggable } from "react-beautiful-dnd";
